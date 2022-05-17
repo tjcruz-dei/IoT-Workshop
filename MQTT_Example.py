@@ -6,7 +6,7 @@ import socket
 import time,random
 from paho.mqtt import client as mqtt_client
 
-broker='10.254.0.250'
+broker=''
 port = 1883
 
 topicSuffix="01A"
@@ -31,7 +31,7 @@ def connect_mqtt() -> mqtt_client:
 
     client_id = f'htb--mqtt-{random.randint(0, 100)}-'+str(time.time())
     client = mqtt_client.Client(client_id+str(os.getpid())+str(time.time()))
-    #client.username_pw_set(username,password)
+    client.username_pw_set(username,password)
     client.on_connect = on_connect
     client.on_disconnect = on_disconnect
     
