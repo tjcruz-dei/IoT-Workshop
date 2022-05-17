@@ -21,6 +21,7 @@ def connect_mqtt() -> mqtt_client:
     def on_connect(client, userdata, flags, rc):
         if rc == 0:
             print("Connected to MQTT Broker!")
+            subscribe(client)
         else:
             print("Failed to connect, return code "+str(rc))
 
@@ -51,7 +52,7 @@ def subscribe(client: mqtt_client):
 
     client.subscribe(topic_recv,qos=0)
     client.on_message = on_message
-    print("SUB:"+topic_recv+" PUB:"+topic_send)
+    #print("SUB:"+topic_recv+" PUB:"+topic_send)
 
 #MQTT Pub
 def publish(client,msg,topic_send):
@@ -64,12 +65,11 @@ def publish(client,msg,topic_send):
 #Initialization
 if __name__ == "__main__":	
 	client=connect_mqtt()
-	subscribe(client)
 	client.loop_start()
-	
+
+	time.sleep(0.5)	
 	command=""
 	while (command!="STOP"):
-		command=input("command:")
+		command=input("\n"+"command:")
 		publish(client,command,topic_send)
-	
 	client.disconnect()
