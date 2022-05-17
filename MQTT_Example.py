@@ -1,5 +1,3 @@
-#NAGLE OFF!!!!
-
 import ssl
 import os
 import socket
