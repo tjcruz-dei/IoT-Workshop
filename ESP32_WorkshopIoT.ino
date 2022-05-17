@@ -26,6 +26,7 @@ PubSubClient client(espClient);
 
 void setup() {
   Serial.begin(115200);
+  randomSeed(analogRead(33));
   delay(1000);
   
   WiFi.disconnect();
