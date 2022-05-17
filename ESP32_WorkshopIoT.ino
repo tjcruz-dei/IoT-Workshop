@@ -5,15 +5,15 @@
 #define ChanID "01A";
 
 // Set your new MAC Address
-uint8_t newMACAddress[] = {0xF2, 0x5E, 0xA4, 0x00, 0x00, 0x00};
+uint8_t newMACAddress[] = {0xF2, 0x5E, 0x00, 0x00, 0x00, 0x00};
 
 //Topics
 const char rcvTopic[]="/command/" ChanID;
 const char sndTopic[]="/status/" ChanID;
 
 // Replace the next variables with your SSID/Password combination
-const char* ssid = "SSID";
-const char* password = "pass";
+const char* ssid = "";
+const char* password = "";
 
 // Add your MQTT Broker IP address, example:
 const char* mqtt_server = "";
