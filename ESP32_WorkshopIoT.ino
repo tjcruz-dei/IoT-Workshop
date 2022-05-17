@@ -8,7 +8,8 @@
 uint8_t newMACAddress[] = {0xF2, 0x5E, 0xA4, 0x00, 0x00, 0x00};
 
 //Topics
-const char rcvTopic[]="/commands/" ChanID;
+const char rcvTopic[]="/command/" ChanID;
+const char sndTopic[]="/status/" ChanID;
 
 // Replace the next variables with your SSID/Password combination
 const char* ssid = "SSID";
@@ -112,6 +113,6 @@ void loop() {
   char TXbuf[5]="";
   sprintf(TXbuf, "%d", LDR);
   
-  client.publish("/robot/D1", TXbuf);
+  client.publish(sndTopic, TXbuf);
   delay(500); 
 }
